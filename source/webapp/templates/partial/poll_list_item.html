@@ -1,0 +1,20 @@
+{% load widget_tweaks %}
+
+{#<li class ="list-group-item d-flex flex-column">#}
+{#    <div class="row">#}
+{#        <h6 class="ml-3">#}
+{#            <a href="{% url 'view poll' poll.pk %}"><strong>{{ poll.question }}</strong></a>#}
+{#        </h6>#}
+{#        <span class="ml-auto"><strong>Created at: </strong>{{ poll.created_at }}</span>#}
+{#    </div>#}
+{#</li>#}
+
+
+<tr>
+    <th scope="row"><a href="{% url 'view poll' poll.pk %}"><strong>{{ poll.question }}</strong></a></th>
+    <td>
+        <a href="{% url 'update poll' poll.pk %}"><i class="fas fa-pen-square"></i></a>
+        <a href="{% url 'delete poll' poll.pk%}"><i class="fas fa-eraser"></i></a>
+    </td>
+    <td><span class="ml-auto"><strong>Created at: </strong>{{ poll.created_at }}</span></td>
+</tr>

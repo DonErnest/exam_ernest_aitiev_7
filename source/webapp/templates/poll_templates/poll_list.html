@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Опросы
+{% endblock %}
+{% block menu_links %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'create poll' %}">Создать опрос</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Poll question</th>
+            <th scope="col">Edit/delete poll</th>
+            <th scope="col">Date</th>
+            {% include 'partial/pagination.html' %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for poll in polls %}
+            {% include 'partial/poll_list_item.html' %}
+        {% empty %}
+            <tr>
+                Опросов нет
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{#    <ul class="list-group">#}
+{#        <li class="list-group-item">#}
+{#            <h6 class="font-italic"><strong>Polls</strong></h6>#}
+{#        </li>#}
+{#        {% for poll in polls %}#}
+{#            #}
+{#        {% empty %}#}
+{#            <li class ="list-group-item">No polls yet.</li>#}
+{#        {% endfor %}#}
+{#        {% include 'partial/pagination.html' %}#}
+{#    </ul>#}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Просмотр опроса
+{% endblock %}
+
+{% block content %}
+    <h1>Опрос</h1>
+    <div class="d-flex flex-column justify-content-center">
+        <div class="question"><h3><strong>{{ poll.question }}</strong></h3></div>
+        <div class="choices">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h6 class="font-italic"><strong>Choices</strong></h6>
+                </li>
+                {% for choice in poll.choices.all %}
+                    <li class ="list-group-item d-flex flex-column">
+                        <div class="row">
+                            <h6 class="font-italic ml-3">
+                                {{ choice.answer_version }}
+                            </h6>
+                        </div>
+                    </li>
+                {% empty %}
+                    <li class ="list-group-item">No choices yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}
