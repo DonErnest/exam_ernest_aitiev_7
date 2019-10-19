@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Статистика по ответам{% endblock %}
+
+{% block content %}
+    <h1>Статистика</h1>
+    <h2>{{ poll.question }}</h2>
+    <h3>Варианты ответа: </h3>
+    {% for choice in poll.choices.all %}
+        <p>{{ choice.answer_version }}</p>
+    {% endfor%}
+    <h3>Количетсво ответов: {{ answers_number }}</h3>
+    {% for choice in choices %}
+    <p>{{ choice.answer_version }} : {{ choice.num_answers }} ({{ choice.percentage_answers }})</p>
+    {% endfor %}
+    <div>
+        {% for choice in choices %}
+            <div style="width: {{ choice.percentage.answers }}% ; color: "></div>
+        {% endfor %}
+    </div>
+{% endblock %}

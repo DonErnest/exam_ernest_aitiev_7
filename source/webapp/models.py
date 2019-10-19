@@ -15,3 +15,9 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.answer_version
+
+
+class Answer(models.Model):
+    poll = models.ForeignKey('webapp.Poll', on_delete=models.CASCADE, related_name='answers', verbose_name='Опрос')
+    added_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата и время ответа')
+    answer_choice = models.ForeignKey('webapp.Choice', on_delete=models.CASCADE, related_name='answers', verbose_name='Вариант ответа')

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from webapp.models import Poll, Choice
+from webapp.models import Poll, Choice, Answer
 
 
 class PollAdmin(admin.ModelAdmin):
@@ -20,3 +20,4 @@ class ChoiceAdmin(admin.ModelAdmin):
 
 admin.site.register(Poll, PollAdmin)
 admin.site.register(Choice, ChoiceAdmin)
+admin.site.register(Answer)

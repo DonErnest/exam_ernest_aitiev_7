@@ -1,21 +1,27 @@
 {% load widget_tweaks %}
 
-{% block _list %}
-    <ul class="list-group">
-        <li class="list-group-item">
-            <h6 class="font-italic"><strong>Tasks</strong></h6>
-        </li>
-        {% for task in tasks %}
-            <li class ="list-group-item d-flex flex-column">
-                <div class="row">
-                    <h6 class="font-italic ml-3">
-                        <a href="{% url 'view task' task.pk %}"><strong>{{ task.summary }}</strong></a>
-                    </h6>
-                    <span class="ml-auto"><strong>Created at: </strong>{{ task.created_at }}</span>
+<div class="btn-toolbar justify-content-between mt-4" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group-vertical" role="group" aria-label="First group">
+          {% for choice in choices %}
+              <div class="radio">
+                  <label><input type="radio" name="optradio" checked>{{ choice.text }}</label>
+              </div>
+          {% endfor %}
+      </div>
+    </div>
+
+<fieldset class="form-group">
+    <div class="row">
+        <h3 class="col-form-label col-sm-2 pt-0">Radios</h3>
+        <div class="col-sm-10">
+            {% for choice in choices %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{  }}" id="gridRadios1" value="option1" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        First radio
+                    </label>
                 </div>
-            </li>
-        {% empty %}
-            <li class ="list-group-item">No tasks yet.</li>
-        {% endfor %}
-    </ul>
-{% endblock %}
+            {% endfor %}
+        </div>
+    </div>
+</fieldset>
