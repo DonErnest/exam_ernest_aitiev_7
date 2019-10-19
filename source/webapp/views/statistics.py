@@ -20,4 +20,5 @@ class StatisticsView(TemplateView):
                                                             percentage_answers=Count('answers')*100/answers_number )
         context['answers_number'] = answers_number
         context['choices'] = choices
+        context['colors'] = COLORS
         return context

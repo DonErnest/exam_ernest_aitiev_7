@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load widget_tweaks %}
+
 {% block title %}Статистика по ответам{% endblock %}
 
 {% block content %}
@@ -13,9 +15,11 @@
     {% for choice in choices %}
     <p>{{ choice.answer_version }} : {{ choice.num_answers }} ({{ choice.percentage_answers }})</p>
     {% endfor %}
-    <div>
+    <div class="graph row">
         {% for choice in choices %}
-            <div style="width: {{ choice.percentage.answers }}% ; color: "></div>
+            <div class = "bulk" style= "width:{{ choice.percentage_answers }}%;
+
+                    background-color: {{ colors.forloop.counter0 }}"></div>
         {% endfor %}
     </div>
 {% endblock %}

@@ -20,8 +20,12 @@ class ChoiceForm(forms.ModelForm):
 
 
 class AnswerForm(forms.ModelForm):
-
     class Meta:
         model = Answer
         fields=['answer_choice']
         labels={'answer_choice':'Вариант ответа'}
+        widgets = {
+            'answer_choice': forms.RadioSelect,
+            
+        }
+
