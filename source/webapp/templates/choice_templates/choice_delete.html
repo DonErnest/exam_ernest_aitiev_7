@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Удаление варианта ответа{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Удаление ответа</h1>
+    <div class="mt-5">
+        <h2><strong>{{ choice.answer_version }}</strong></h2>
+        <h3>Вы уверены, что хотите удалить этот вариант ответа?</h3>
+        <form method="POST" action="{% url 'delete choice' choice.pk %}">
+            {% csrf_token %}
+            <div class="btn-group" >
+                <input type="submit" value="Удалить" class="btn btn-dark">
+                <a href="{% url 'view poll' choice.poll_id %}" class="btn btn-outline-dark">Возврат к опросу</a>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

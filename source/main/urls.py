@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from webapp.views import PollListRedirect, PollListView, PollDetailedView, PollCreateView, PollDeleteView, \
-    PollUpdateView
+    PollUpdateView, ChoiceUpdateView, ChoiceDeleteView, ChoiceCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,8 @@ urlpatterns = [
     path('poll/<int:pk>/', PollDetailedView.as_view(), name='view poll'),
     path('poll/create/', PollCreateView.as_view(), name='create poll'),
     path('poll/<int:pk>/update', PollUpdateView.as_view(), name='update poll'),
-    path('poll/<int:pk>/delete', PollDeleteView.as_view(), name='delete poll')
+    path('poll/<int:pk>/delete', PollDeleteView.as_view(), name='delete poll'),
+    path('choice/<int:pk>/update', ChoiceUpdateView.as_view(), name='update choice'),
+    path('choice/<int:pk>/delete', ChoiceDeleteView.as_view(), name='delete choice'),
+    path('poll/<int:pk>/choice/add', ChoiceCreateView.as_view(), name='add choice')
 ]

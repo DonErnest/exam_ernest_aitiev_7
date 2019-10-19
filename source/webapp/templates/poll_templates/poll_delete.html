@@ -7,9 +7,10 @@
     <div class="mt-5">
         <h2><strong>{{ poll.question }}</strong></h2>
         <h3>Вы уверены, что хотите удалить этот опрос?</h3>
-        <form action="{% url 'delete poll' poll.pk %}">
+        <form method="POST" action="{% url 'delete poll' poll.pk %}">
+            {% csrf_token %}
             <div class="btn-group" >
-                <input type="button" value="Удалить" class="btn btn-dark">
+                <input type="submit" value="Удалить" class="btn btn-dark">
                 <a href="{% url 'index' %}" class="btn btn-outline-dark">Возврат на главную</a>
             </div>
         </form>
