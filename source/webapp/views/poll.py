@@ -45,6 +45,9 @@ class PollUpdateView(UpdateView):
 class PollDeleteView(DeleteView):
     model = Poll
     template_name = 'poll_templates/poll_delete.html'
-    success_url = 'index'
+
+
+    def get_success_url(self):
+        return reverse('index')
 
 
